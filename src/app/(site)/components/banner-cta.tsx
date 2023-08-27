@@ -8,6 +8,9 @@ import clsx from 'clsx';
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai"
 import { BiChevronRight } from "react-icons/bi"
 
+import { reset, close } from '@/redux/features/bannerCtaSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+
 interface BannerCtaProps {
     closable?: boolean,
     callContent: string,
@@ -17,7 +20,8 @@ interface BannerCtaProps {
 
 const BannerCta: React.FC<BannerCtaProps> = ({ closable, callContent, actionContent, url }) => {
 
-    const [closed, setClosed] = useState<boolean>(false);
+    const closed = useAppSelector((state) => state.bannerCtaSlice.closed);
+    const dispatch = useAppDispatch();
     
 
     return (
@@ -43,7 +47,7 @@ const BannerCta: React.FC<BannerCtaProps> = ({ closable, callContent, actionCont
             &&
             <AiOutlineClose 
             className="cursor-pointer sm:absolute right-5"
-            onClick={() => setClosed(prev => true)}
+            onClick={() => dispatch(close())}
             />
             }
             

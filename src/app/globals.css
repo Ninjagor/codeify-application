@@ -7,3 +7,16 @@ body,
 :root {
   height: 100%;
 }
+
+/* Custom Utilities */
+@layer utilities {
+    .desktop-hero-clipping {
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+
+    .mobile-hero-clipping {
+      clip-path: ellipse(60% 60% at 50% 100%);
+    }
+}
+
+

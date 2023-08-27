@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import bannerCtaSlice from "./features/bannerCtaSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    bannerCtaSlice
+  },
   devTools: process.env.NODE_ENV !== "production",
 });
 

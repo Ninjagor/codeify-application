@@ -6,6 +6,8 @@ import { BiInfoCircle, BiAtom, BiPaperPlane, BiDonateHeart } from "react-icons/b
 import { GiGraduateCap } from "react-icons/gi"
 import HamburgerMenu from './hamburger-menu'
 
+import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -15,6 +17,8 @@ const Navbar = () => {
   const closeMenu = () => {
     setMenuOpen(prev => false)
   }
+
+  const router = useRouter();
 
   const menuItems: {
     itemContent: React.ReactNode;
@@ -92,7 +96,7 @@ const Navbar = () => {
     <>
     <nav className="w-full bg-white px-5 py-4 flex items-center justify-between min-h-[76px] max-w-[1340px] ml-auto mr-auto">
         {/* Temporary Logo */}
-        <h1 className="text-2xl font-bold tracking-tight cursor-pointer">Codeify</h1>
+        <h1 className="text-2xl font-bold tracking-tight cursor-pointer" onClick={() => router.push("/")}>Codeify</h1>
 
         {/* Nav Links */}
         <ul className="lg:flex items-center gap-10 hidden">
